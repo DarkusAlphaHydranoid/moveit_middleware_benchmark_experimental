@@ -22,11 +22,7 @@ def launch_setup(context, *args, **kwargs):
     )
 
     add_two_ints_server_node = ExecuteProcess(
-        cmd=[
-            [
-                "ros2 run demo_nodes_cpp add_two_ints_server"
-            ]
-        ],
+        cmd=[["ros2 run demo_nodes_cpp add_two_ints_server"]],
         shell=True,
     )
 

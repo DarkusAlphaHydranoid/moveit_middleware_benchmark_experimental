@@ -37,7 +37,7 @@
    against basic service client works
  */
 
- #include "moveit_middleware_benchmark/scenarios/scenario_basic_service_client.hpp"
+#include "moveit_middleware_benchmark/scenarios/scenario_basic_service_client.hpp"
 
 namespace moveit
 {
@@ -46,42 +46,50 @@ namespace middleware_benchmark
 
 using namespace std::chrono_literals;
 
-ScenarioBasicServiceClient::ScenarioBasicServiceClient(rclcpp::Node::SharedPtr node) : node_(node) {
+ScenarioBasicServiceClient::ScenarioBasicServiceClient(rclcpp::Node::SharedPtr node) : node_(node)
+{
   client_ = node_->create_client<example_interfaces::srv::AddTwoInts>("add_two_ints");
 
-  if (!client_->wait_for_service(5s)) {
+  if (!client_->wait_for_service(5s))
+  {
     RCLCPP_FATAL(node_->get_logger(), "Server is not available !");
   }
 
-  // TODO @CihatAltiparmak : add this time stopings to 
+  // TODO @CihatAltiparmak : add this time stopings to
   //              perception pipeline benchmark as well
-  // It should be waited even if server is okay due 
-  // to the fact that server sometimes doesn't response 
-  // request we sent in case that client sent request once server is ready 
+  // It should be waited even if server is okay due
+  // to the fact that server sometimes doesn't response
+  // request we sent in case that client sent request once server is ready
   std::this_thread::sleep_for(1s);
 }
 
-void ScenarioBasicServiceClient::runTestCase(const int& sending_request_number) {
-  for (int i = 0; i < sending_request_number; i++) {
+void ScenarioBasicServiceClient::runTestCase(const int& sending_request_number)
+{
+  for (int i = 0; i < sending_request_number; i++)
+  {
     auto request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
     request->a = 5;
     request->b = 4;
 
     auto result = client_->async_send_request(request);
 
-    if (rclcpp::spin_until_future_complete(node_, result) == rclcpp::FutureReturnCode::SUCCESS) {
-      RCLCPP_DEBUG(node_->get_logger(), "Response %d is successfuly returned by server!", i);
-    } else {
+    if (rclcpp::spin_until_future_complete(node_, result) == rclcpp::FutureReturnCode::SUCCESS)
+    {
+      RCLCPP_DEBUG(node_->get_logger(), "Response %d is successfully returned by server!", i);
+    }
+    else
+    {
       RCLCPP_ERROR(node_->get_logger(), "Request %d failed!", i);
     }
   }
 }
 
-ScenarioBasicServiceClientFixture::ScenarioBasicServiceClientFixture() {
-
+ScenarioBasicServiceClientFixture::ScenarioBasicServiceClientFixture()
+{
 }
 
-void ScenarioBasicServiceClientFixture::SetUp(::benchmark::State& /*state*/) {
+void ScenarioBasicServiceClientFixture::SetUp(::benchmark::State& /*state*/)
+{
   if (node_.use_count() == 0)
   {
     node_ = std::make_shared<rclcpp::Node>("test_scenario_basic_service_client",
@@ -91,7 +99,8 @@ void ScenarioBasicServiceClientFixture::SetUp(::benchmark::State& /*state*/) {
   }
 }
 
-void ScenarioBasicServiceClientFixture::TearDown(::benchmark::State& /*state*/) {
+void ScenarioBasicServiceClientFixture::TearDown(::benchmark::State& /*state*/)
+{
   node_.reset();
 }
 
@@ -99,7 +108,7 @@ BENCHMARK_DEFINE_F(ScenarioBasicServiceClientFixture, test_scenario_basic_servic
 {
   for (auto _ : st)
   {
-    // TODO @CihatAltiparmak : add this time stopings to 
+    // TODO @CihatAltiparmak : add this time stopings to
     //              perception pipeline benchmark as well
     st.PauseTiming();
     auto sc = ScenarioBasicServiceClient(node_);

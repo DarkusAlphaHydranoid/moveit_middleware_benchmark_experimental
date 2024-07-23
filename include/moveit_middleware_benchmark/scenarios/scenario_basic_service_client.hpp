@@ -63,7 +63,7 @@ public:
 private:
   rclcpp::Node::SharedPtr node_;
   rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedPtr client_;
-};    
+};
 
 class ScenarioBasicServiceClientFixture : public benchmark::Fixture
 {
