@@ -10,7 +10,7 @@ jobs:
       contents: write
       deployments: write
     container:
-      image: ghcr.io/DarkusAlphaHydranoid/moveit_middleware_benchmark_experimental:latest
+      image: ghcr.io/darkusalphahydranoid/moveit_middleware_benchmark_experimental:latest
     steps:
       - name: run perception benchmark
         run: |
@@ -44,7 +44,7 @@ jobs:
       contents: write
       deployments: write
     container:
-      image: ghcr.io/DarkusAlphaHydranoid/moveit_middleware_benchmark_experimental:latest
+      image: ghcr.io/darkusalphahydranoid/moveit_middleware_benchmark_experimental:latest
     steps:
       - name: run perception benchmark
         run: |
