@@ -17,6 +17,7 @@ find_package(yaml-cpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(example_interfaces REQUIRED)
 
+
 add_executable(
   scenario_perception_pipeline_benchmark_main
   src/scenario_perception_pipeline_benchmark_main.cpp
