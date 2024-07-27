@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1722118261482,
+  "lastUpdate": 1722118329041,
   "repoUrl": "https://github.com/DarkusAlphaHydranoid/moveit_middleware_benchmark_experimental",
   "entries": {
     "Perception Pipeline Benchmark": [
@@ -292,6 +292,36 @@ window.BENCHMARK_DATA = {
             "value": 225251555164.00003,
             "unit": "ns/iter",
             "extra": "iterations: 1\ncpu: 1368988703 ns\nthreads: 1"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "jarbay910@gmail.com",
+            "name": "DarkusAlphaHydranoid",
+            "username": "DarkusAlphaHydranoid"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "a3f927c96fa3119e855b1a321c3dcf699c65390d",
+          "message": "Update Dockerfile",
+          "timestamp": "2024-07-28T01:02:16+03:00",
+          "tree_id": "100fde7897a3d5cbb2b6196a41b9fbcfc2894080",
+          "url": "https://github.com/DarkusAlphaHydranoid/moveit_middleware_benchmark_experimental/commit/a3f927c96fa3119e855b1a321c3dcf699c65390d"
+        },
+        "date": 1722118328860,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "ScenarioPerceptionPipelineFixture/test_scenario_perception_pipeline",
+            "value": 287167808863.00006,
+            "unit": "ns/iter",
+            "extra": "iterations: 1\ncpu: 1776468280 ns\nthreads: 1"
           }
         ]
       }
