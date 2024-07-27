@@ -7,7 +7,7 @@ RUN mkdir ws/src -p
 
 RUN . /opt/ros/rolling/setup.sh && \
     cd /root/ws_moveit/src && \
-    git clone https://github.com/DarkusAlphaHydranoid/moveit_middleware_benchmark_experimental.git && \
+    git clone https://github.com/DarkusAlphaHydranoid/moveit_middleware_benchmark_experimental.git -b fix/use_docker_image_of_moveit && \
     vcs import < moveit_middleware_benchmark_experimental/moveit_middleware_benchmark.repos --recursive
 
 RUN . /opt/ros/rolling/setup.sh && \
