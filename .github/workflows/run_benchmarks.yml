@@ -52,6 +52,7 @@ jobs:
   run_benchmarks_for_rmw_cyclonedds:
     name: run_benchmarks_for_rmw_cyclonedds
     runs-on: ubuntu-latest
+    needs: [run_benchmarks_for_rmw_fastrtps]
     permissions:
       contents: write
       deployments: write
@@ -63,7 +64,7 @@ jobs:
           cd /root/ws_moveit
           . /opt/ros/rolling/setup.sh
           . install/setup.sh
-          sh src/moveit_middleware_benchmark_experimental/scripts/run_all_benchmarks.sh -i ./src/moveit_middleware_benchmark_experimental/middleware_configurations/rmw_fastrtps/config_rmw_cyclonedds.sh -d /benchmark_results -m rmw_cyclonedds_cpp
+          sh src/moveit_middleware_benchmark_experimental/scripts/run_all_benchmarks.sh -i ./src/moveit_middleware_benchmark_experimental/middleware_configurations/rmw_cyclonedds/config_rmw_cyclonedds.sh -d /benchmark_results -m rmw_cyclonedds_cpp
           
       - name: clone repo
         uses: actions/checkout@v3
