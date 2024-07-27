@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1722118394804,
+  "lastUpdate": 1722118532674,
   "repoUrl": "https://github.com/DarkusAlphaHydranoid/moveit_middleware_benchmark_experimental",
   "entries": {
     "Perception Pipeline Benchmark": [
@@ -352,6 +352,32 @@ window.BENCHMARK_DATA = {
             "value": 251144047837.99994,
             "unit": "ns/iter",
             "extra": "iterations: 1\ncpu: 1557383900 ns\nthreads: 1"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "DarkusAlphaHydranoid",
+            "username": "DarkusAlphaHydranoid"
+          },
+          "committer": {
+            "name": "DarkusAlphaHydranoid",
+            "username": "DarkusAlphaHydranoid"
+          },
+          "id": "a3f927c96fa3119e855b1a321c3dcf699c65390d",
+          "message": "Gotten workspace directory from moveit docker image's own alias",
+          "timestamp": "2024-07-27T20:56:12Z",
+          "url": "https://github.com/DarkusAlphaHydranoid/moveit_middleware_benchmark_experimental/pull/14/commits/a3f927c96fa3119e855b1a321c3dcf699c65390d"
+        },
+        "date": 1722118532048,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "ScenarioPerceptionPipelineFixture/test_scenario_perception_pipeline",
+            "value": 301455287519.99994,
+            "unit": "ns/iter",
+            "extra": "iterations: 1\ncpu: 1800248894 ns\nthreads: 1"
           }
         ]
       }
