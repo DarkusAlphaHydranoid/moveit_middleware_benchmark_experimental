@@ -12,6 +12,8 @@ jobs:
     container:
       image: ghcr.io/darkusalphahydranoid/moveit_middleware_benchmark_experimental:latest
       options: --privileged
+      volumes:
+        - /proc/sys/net/:/proc/sys/net
     steps:
       - name: run all benchmarks
         run: |
