@@ -11,6 +11,7 @@ jobs:
       deployments: write
     container:
       image: ghcr.io/darkusalphahydranoid/moveit_middleware_benchmark_experimental:latest
+      options: --sysctl 'net.core.rmem_max=20971520'
     steps:
       - name: run all benchmarks
         run: |
@@ -18,6 +19,11 @@ jobs:
           cd /root/ws_moveit
           . /opt/ros/rolling/setup.sh
           . install/setup.sh
+          sudo sysctl net | grep mem
+          sudo sysctl -w "net.core.rmem_max=20971520"
+          sudo sysctl -w "net.core.wmem_max=20971520"
+          sudo sysctl -w "net.core.rmem_default=20971520"
+          sudo sysctl -w "net.core.wmem_default=20971520"
           taskset -c 0 sh src/moveit_middleware_benchmark_experimental/scripts/run_all_benchmarks.sh -i ./src/moveit_middleware_benchmark_experimental/middleware_configurations/rmw_fastrtps/config_rmw_fastrtps.sh -d /benchmark_results -m rmw_fastrtps_cpp
           taskset -c 0 sh src/moveit_middleware_benchmark_experimental/scripts/run_all_benchmarks.sh -i ./src/moveit_middleware_benchmark_experimental/middleware_configurations/rmw_cyclonedds/config_rmw_cyclonedds.sh -d /benchmark_results -m rmw_cyclonedds_cpp
       - name: clone repo
