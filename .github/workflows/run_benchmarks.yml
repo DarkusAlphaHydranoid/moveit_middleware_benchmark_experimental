@@ -11,7 +11,7 @@ jobs:
       deployments: write
     container:
       image: ghcr.io/darkusalphahydranoid/moveit_middleware_benchmark_experimental:latest
-      options: --net=host
+      options: --privileged
     steps:
       - name: run all benchmarks
         run: |
