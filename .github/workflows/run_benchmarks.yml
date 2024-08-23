@@ -18,12 +18,12 @@ jobs:
           cd /root/ws_moveit
           . /opt/ros/rolling/setup.sh
           . install/setup.sh
-          sysctl -w net.ipv4.udp_mem="102400 873800 16777216"
-          sysctl -w net.core.netdev_max_backlog="30000"
-          sysctl -w net.core.rmem_max="20971520"
-          sysctl -w net.core.wmem_max="20971520"
-          sysctl -w net.core.rmem_default="20971520"
-          sysctl -w net.core.wmem_default="20971520
+          sudo sysctl -w "net.ipv4.udp_mem=102400 873800 16777216"
+          sudo sysctl -w "net.core.netdev_max_backlog=30000"
+          sudo sysctl -w "net.core.rmem_max=20971520"
+          sudo sysctl -w "net.core.wmem_max=20971520"
+          sudo sysctl -w "net.core.rmem_default=20971520"
+          sudo sysctl -w "net.core.wmem_default=20971520"
           taskset -c 0 sh src/moveit_middleware_benchmark_experimental/scripts/run_all_benchmarks.sh -i ./src/moveit_middleware_benchmark_experimental/middleware_configurations/rmw_fastrtps/config_rmw_fastrtps.sh -d /benchmark_results -m rmw_fastrtps_cpp
           taskset -c 0 sh src/moveit_middleware_benchmark_experimental/scripts/run_all_benchmarks.sh -i ./src/moveit_middleware_benchmark_experimental/middleware_configurations/rmw_cyclonedds/config_rmw_cyclonedds.sh -d /benchmark_results -m rmw_cyclonedds_cpp
       - name: clone repo
