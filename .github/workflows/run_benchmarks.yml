@@ -11,7 +11,7 @@ jobs:
       deployments: write
     container:
       image: ghcr.io/darkusalphahydranoid/moveit_middleware_benchmark_experimental:latest
-      options: --sysctl net.core.rmem_max=20971520 --net=host
+      options: --net=host
     steps:
       - name: run all benchmarks
         run: |
