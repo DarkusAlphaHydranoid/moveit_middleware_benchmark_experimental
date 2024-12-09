@@ -53,6 +53,6 @@ jobs:
         with:
           owner: 'darkusalphahydranoid'
           package-name: 'moveit_middleware_benchmark_experimental'
-          package-type: 'docker'
+          package-type: 'container'
           min-versions-to-keep: 5
           delete-only-untagged-versions: 'true'
