@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/delete-package-versions@v5
         with:
-          owner: 'DarkusAlphaHydranoid'
+          owner: 'darkusalphahydranoid'
           package-name: 'moveit_middleware_benchmark_experimental'
           package-type: 'docker'
           min-versions-to-keep: 5
